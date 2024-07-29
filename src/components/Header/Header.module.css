@@ -1,0 +1,20 @@
+.header {
+  border-bottom: 1px solid gray;
+}
+
+.headerBox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav {
+  position: relative;
+}
+
+.navList {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
