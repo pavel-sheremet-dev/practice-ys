@@ -41,8 +41,14 @@ h6 {
 }
 
 button {
-  background-color: transparent;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 8px 8px;
+  background-color: hsl(232, 80%, 90%);
+  border-radius: 4px;
+}
+
+button:hover,
+button:focus {
+  background-color: hsl(232, 80%, 80%);
 }
