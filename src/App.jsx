@@ -1,10 +1,11 @@
 import Container from "./components/Container/Container";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import LogItem from "./components/LogItem/LogItem";
+import LogList from "./components/LogList/LogList";
 import Main from "./components/Main/Main";
-import Spoiler from "./components/Spoiler/Spoiler";
-import faqData from "./data/faq.json";
-// імпортувати масив faqData з data/faq.json
+
+import data from "./data/data.json";
 
 const App = () => {
   return (
@@ -13,16 +14,7 @@ const App = () => {
       <Main>
         <section>
           <Container>
-            {faqData.map((element) => {
-              return (
-                <Spoiler
-                  key={element.id}
-                  head={element.head}
-                  text={element.answer}
-                  id={element.id}
-                />
-              );
-            })}
+            <LogList logData={data} />
           </Container>
         </section>
       </Main>
