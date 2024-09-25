@@ -1,0 +1,23 @@
+.table {
+  border: 1px solid black;
+}
+
+.row {
+  border-bottom: 1px solid black;
+}
+
+.head {
+  border-bottom: 1px solid black;
+  background-color: rgb(207, 255, 225);
+}
+
+.col {
+  min-width: 100px;
+  padding: 8px 16px;
+  text-align: center;
+  height: 100%;
+}
+
+.col:not(:last-child) {
+  border-right: 1px solid black;
+}

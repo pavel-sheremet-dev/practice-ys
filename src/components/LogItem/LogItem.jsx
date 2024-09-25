@@ -1,17 +1,28 @@
-import { differenceInHours, format } from "date-fns";
+import { differenceInHours, differenceInMinutes, format } from "date-fns";
+import { uk } from "date-fns/locale";
+
+import TableGrid from "../TableGrid/TableGrid";
+
+import css from "./LogItem.module.css";
 
 export default function LogItem({ item }) {
-  const formatedDate = format(new Date(item.date), "PPP");
-  const formatedStart = format(item.start, "p");
-  const formateEnd = format(item.end, "p");
-  const total = differenceInHours(item.end, item.start);
+  const formatedDate = format(new Date(item.date), "E dd.MM", {
+    locale: uk,
+  });
+  const formatedStart = format(item.start, "HH:mm");
+  const formateEnd = format(item.end, "HH:mm");
+  const hours = differenceInHours(item.end, item.start);
+  const minutes = differenceInMinutes(item.end, item.start);
+
+  const total = hours + (minutes - hours * 60) / 60;
+
   return (
-    <div>
-      <div>{formatedDate}</div>
-      <div>{item.user}</div>
-      <div>{formatedStart}</div>
-      <div>{formateEnd}</div>
-      <div>{total}</div>
-    </div>
+    <TableGrid>
+      <div className={css.col}>{formatedDate}</div>
+      <div className={css.col}>{item.user}</div>
+      <div className={css.col}>{formatedStart}</div>
+      <div className={css.col}>{formateEnd}</div>
+      <div className={css.col}>{total.toFixed(1)}</div>
+    </TableGrid>
   );
 }

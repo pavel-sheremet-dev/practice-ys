@@ -1,0 +1,17 @@
+.col {
+  padding: 8px 16px;
+  min-width: 100px;
+  text-align: center;
+}
+
+.col:not(:last-child) {
+  border-right: 1px solid #000000;
+}
+
+.col:nth-child(1) {
+  text-align: start;
+}
+
+.col:nth-child(2) {
+  text-align: start;
+}
