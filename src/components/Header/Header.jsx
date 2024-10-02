@@ -2,8 +2,9 @@ import { Menu } from "lucide-react";
 import Container from "../Container/Container";
 
 import css from "./Header.module.css";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 
-const Header = () => {
+const Header = ({ toggleTheme, theme }) => {
   return (
     <header className={css.header}>
       <Container className={css.headerBox}>
@@ -21,6 +22,7 @@ const Header = () => {
           </ul>
         </nav>
         <button>Sign In</button>
+        <ThemeSwitcher toggleTheme={toggleTheme} theme={theme} />
         <button>
           <Menu size={32} />
         </button>

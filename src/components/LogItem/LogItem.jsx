@@ -5,7 +5,7 @@ import TableGrid from "../TableGrid/TableGrid";
 
 import css from "./LogItem.module.css";
 
-export default function LogItem({ item }) {
+export default function LogItem({ item, deleteLogItem }) {
   const formatedDate = format(new Date(item.date), "E dd.MM", {
     locale: uk,
   });
@@ -23,6 +23,16 @@ export default function LogItem({ item }) {
       <div className={css.col}>{formatedStart}</div>
       <div className={css.col}>{formateEnd}</div>
       <div className={css.col}>{total.toFixed(1)}</div>
+      <div className={css.col}>
+        <button
+          type="button"
+          onClick={() => {
+            deleteLogItem(item.id);
+          }}
+        >
+          Delete
+        </button>
+      </div>
     </TableGrid>
   );
 }
