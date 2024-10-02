@@ -6,7 +6,8 @@ import LogList from "./components/LogList/LogList";
 import Main from "./components/Main/Main";
 
 import data from "./data/data.json";
-import { createLogItem } from "./helpers/createLogItem";
+
+import LogForm from "./components/LogForm/LogForm";
 
 const App = () => {
   const [theme, setTheme] = useState(() => {
@@ -41,10 +42,12 @@ const App = () => {
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
-  const addLogItem = () => {
-    const newLogItem = createLogItem();
+  const addLogItem = (newLogItem) => {
     console.log(newLogItem);
     setLogData([...logData, newLogItem]);
+  };
+  const deleteLogItem = (id) => {
+    setLogData(logData.filter((item) => item.id !== id));
   };
   return (
     <>
@@ -54,8 +57,9 @@ const App = () => {
         <section>
           <Container>
             <h1>Журнал</h1>
-            <button onClick={addLogItem}>Add new logItem</button>
-            <LogList logData={logData} />
+            {/* <button onClick={addLogItem}>Add new logItem</button> */}
+            <LogForm onSubmit={addLogItem} />
+            <LogList logData={logData} deleteLogItem={deleteLogItem} />
           </Container>
         </section>
       </Main>
