@@ -3,6 +3,8 @@ import Container from "../Container/Container";
 
 import css from "./Header.module.css";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import IconButton from "../IconButton/IconButton";
+import Button from "../Button/Button";
 
 const Header = ({ toggleTheme, theme }) => {
   return (
@@ -21,11 +23,9 @@ const Header = ({ toggleTheme, theme }) => {
             </li>
           </ul>
         </nav>
-        <button>Sign In</button>
+        <Button>Sign In</Button>
         <ThemeSwitcher toggleTheme={toggleTheme} theme={theme} />
-        <button>
-          <Menu size={32} />
-        </button>
+        <IconButton RLIcon={Menu} />
       </Container>
     </header>
   );

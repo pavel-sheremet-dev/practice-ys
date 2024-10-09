@@ -1,0 +1,14 @@
+.button {
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  background-color: hsl(232, 80%, 90%);
+  border-radius: 4px;
+  min-height: 40px;
+}
+
+.button:hover,
+.button:focus {
+  background-color: hsl(232, 80%, 80%);
+  color: white;
+}

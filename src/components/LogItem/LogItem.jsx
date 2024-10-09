@@ -1,9 +1,12 @@
+import { Pencil, Trash } from "lucide-react";
+
 import { differenceInHours, differenceInMinutes, format } from "date-fns";
 import { uk } from "date-fns/locale";
 
 import TableGrid from "../TableGrid/TableGrid";
 
 import css from "./LogItem.module.css";
+import IconButton from "../IconButton/IconButton";
 
 export default function LogItem({ item, deleteLogItem }) {
   const formatedDate = format(new Date(item.date), "E dd.MM", {
@@ -22,16 +25,17 @@ export default function LogItem({ item, deleteLogItem }) {
       <div className={css.col}>{item.user}</div>
       <div className={css.col}>{formatedStart}</div>
       <div className={css.col}>{formateEnd}</div>
-      <div className={css.col}>{total.toFixed(1)}</div>
+      <div className={css.col}>{total.toFixed(2)}</div>
       <div className={css.col}>
-        <button
-          type="button"
-          onClick={() => {
-            deleteLogItem(item.id);
-          }}
-        >
-          Delete
-        </button>
+        <div className={css.controls}>
+          <IconButton RLIcon={Pencil} />
+          <IconButton
+            RLIcon={Trash}
+            onClick={() => {
+              deleteLogItem(item.id);
+            }}
+          />
+        </div>
       </div>
     </TableGrid>
   );
