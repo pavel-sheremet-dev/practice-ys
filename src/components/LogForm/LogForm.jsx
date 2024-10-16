@@ -1,5 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 import * as Yup from "yup";
 import IconButton from "../IconButton/IconButton";
 import { BadgePlus } from "lucide-react";
@@ -43,9 +43,8 @@ export default function LogForm({ onSubmit }) {
       }}
       validationSchema={schema}
       onSubmit={(values, actions) => {
-        const newLogItem = { ...values, id: nanoid() };
-        console.log(values);
-        console.log(actions);
+        const newLogItem = { ...values };
+
         onSubmit(newLogItem);
         actions.resetForm();
       }}
