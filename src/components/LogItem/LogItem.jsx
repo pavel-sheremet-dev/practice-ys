@@ -15,14 +15,16 @@ export default function LogItem({ item, deleteLogItem }) {
   const formatedStart = format(item.start, "HH:mm");
   const formateEnd = format(item.end, "HH:mm");
   const hours = differenceInHours(item.end, item.start);
-  const minutes = differenceInMinutes(item.end, item.start);
+  const minutes = differenceInMinutes(item.end, item.start, {
+    roundingMethod: "ceil",
+  });
 
   const total = hours + (minutes - hours * 60) / 60;
 
   return (
     <TableGrid>
       <div className={css.col}>{formatedDate}</div>
-      <div className={css.col}>{item.user}</div>
+      <div className={css.col}>{item.username}</div>
       <div className={css.col}>{formatedStart}</div>
       <div className={css.col}>{formateEnd}</div>
       <div className={css.col}>{total.toFixed(2)}</div>

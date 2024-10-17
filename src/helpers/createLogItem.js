@@ -8,7 +8,7 @@ export const createLogItem = () => {
   return {
     id: faker.string.uuid(),
     date: date.toISOString(),
-    user: faker.internet.userName(),
+    username: faker.internet.userName(),
     start: date.toISOString(),
     end: new Date(end).toISOString(),
   };

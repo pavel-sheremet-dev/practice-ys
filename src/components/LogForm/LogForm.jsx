@@ -18,7 +18,7 @@ import css from "./LogForm.module.css";
 
 const schema = Yup.object({
   date: Yup.date().required("*"),
-  user: Yup.string()
+  username: Yup.string()
     .min(2, "від 2-х символів")
     .max(40, "до 40 символів")
     .required("*"),
@@ -37,7 +37,7 @@ export default function LogForm({ onSubmit }) {
     <Formik
       initialValues={{
         date: startOfDay(new Date()),
-        user: "",
+        username: "",
         start: setHours(setMinutes(setSeconds(new Date(), 0), 0), 8),
         end: setHours(setMinutes(setSeconds(new Date(), 0), 0), 20),
       }}
@@ -57,10 +57,10 @@ export default function LogForm({ onSubmit }) {
               <ErrorMessage
                 component="span"
                 className={css.error}
-                name="user"
+                name="username"
               />
             </div>
-            <Field type="text" name="user" className={css.input} />
+            <Field type="text" name="username" className={css.input} />
           </div>
           <div className={css.label}>
             <div>

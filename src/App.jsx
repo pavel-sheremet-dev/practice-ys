@@ -5,8 +5,6 @@ import Header from "./components/Header/Header";
 import LogList from "./components/LogList/LogList";
 import Main from "./components/Main/Main";
 
-import data from "./data/data.json";
-
 import LogForm from "./components/LogForm/LogForm";
 import { addLog, deleteLog, readLogs } from "./services/api-logs";
 
@@ -76,10 +74,15 @@ const App = () => {
       setIsLoading(false);
     }
   };
+
   const sortedLogData = (() => {
-    console.log("sorting");
-    return logData.toSorted((a, b) => a.date - b.date);
+    return logData.toSorted(
+      (a, b) =>
+        new Date(a.date) - new Date(b.date) ||
+        a.username.localeCompare(b.username)
+    );
   })();
+
   return (
     <>
       <Header toggleTheme={toggleTheme} theme={theme} />

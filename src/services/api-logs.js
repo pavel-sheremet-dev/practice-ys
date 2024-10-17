@@ -16,3 +16,13 @@ export const readLogs = async () => {
   const response = await axios.get("/logs");
   return response.data;
 };
+
+export const readLogsByName = async (name) => {
+  const allLogs = await readLogs();
+
+  const filteredLogs = allLogs.filter((logItem) =>
+    logItem.username.toLowerCase().includes(name.toLowerCase())
+  );
+
+  return filteredLogs;
+};
