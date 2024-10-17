@@ -5,21 +5,22 @@ import css from "./Header.module.css";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import IconButton from "../IconButton/IconButton";
 import Button from "../Button/Button";
+import { NavLink } from "react-router-dom";
 
 const Header = ({ toggleTheme, theme }) => {
   return (
     <header className={css.header}>
       <Container className={css.headerBox}>
-        <a href="#" style={{ marginRight: "auto" }}>
+        <NavLink to="/" style={{ marginRight: "auto" }}>
           LOGO
-        </a>
+        </NavLink>
         <nav className={css.nav}>
           <ul className={css.navList}>
             <li>
-              <a href="#">Page 1</a>
+              <NavLink to="/logs">Logs</NavLink>
             </li>
             <li>
-              <a href="#">Page 2</a>
+              <NavLink to="/logs-search">Search</NavLink>
             </li>
           </ul>
         </nav>
